@@ -11,14 +11,13 @@ export default class Bienvenue extends React.Component{
   render(){
     return(
 
-      <ImageBackground style={ styles.image }  resizeMode='cover' source={'./src/images/back.jpg'}>
-        <View style={styles.container}>
-            <Image
-              style={styles.Logo}
-              source={'./src/images/logo.png'}
-            />
-        </View>
+      <ImageBackground style={ styles.image }  resizeMode='cover'
+      source={require('../images/back.jpg')}>
+
+      <Text> test</Text>
+
       </ImageBackground>
+
   );
   }
 }
@@ -30,9 +29,9 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   image: {
-    width: '100%',
-    height: '100%',
-    flex: 1
+    flex: 1,
+           width: '100%',
+           height: '100%'
   },
   text: {
     color: "grey",
