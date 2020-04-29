@@ -1,7 +1,7 @@
 //This is an example code for NavigationDrawer//
 import React, { Component } from 'react';
 //import react in our code.
-import { View, Image, TouchableOpacity } from 'react-native';
+import { View, Image, TouchableOpacity,Text,StyleSheet } from 'react-native';
 // import all basic components
 
 //Import React Navigation
@@ -23,27 +23,49 @@ class NavigationDrawerStructure extends Component {
   render() {
     return (
 
-      <View style={{ flexDirection: 'row' }}>
+<View style={{ flexDirection: 'row' }}>
+      <View>
         <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
           {/*Donute Button Image */}
           <Image
             source={require('./image/drawer.png')}
-            style={{ width: 32, height: 32, marginLeft: 10 }}
+            style={{ width: 32, height: 32, marginLeft: 10, marginTop: 7}}
           />
         </TouchableOpacity >
-        <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
+        </View>
+        <View>
+
         <Image
-          source={require('./image/logotest.png')}
-          style={{ width: 40, height: 40 , marginLeft: 10 ,marginRight: 10}}
+          source={require('./image/logo.png')}
+          style={{ width: 45, height: 45 , marginLeft: 15 ,marginRight: 10}}
         />
-  </TouchableOpacity>
-      </View>
 
+  </View>
+ <View style={{flex: 1, flexDirection: 'column'}}>
+    <View>
+    <Text style={styles.titleText}>You Shop</Text>
+    </View>
 
+    <View>
+    <Text style={{color:'white'}}>Invantaire</Text>
+    </View>
 
+  </View>
 
+    <View style={{flexDirection: 'row'}}>
+        <View>
+            <Image
+              source={require('./image/commande.png')}
+              style={{ width: '45%', height: '75%' , marginLeft: '55%',marginTop: '5%'}}
+            />
+        </View>
+        <View>
+          <Text style={{color:'white', marginTop: 10}}>Commande</Text>
+        </View>
+    </View>
 
-    );
+</View>
+      );
   }
 }
 
@@ -52,7 +74,7 @@ const FirstActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Screen1,
     navigationOptions: ({ navigation }) => ({
-      title: '    You Shop',
+
       headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#0099FF',
@@ -104,7 +126,7 @@ const DrawerNavigatorExample = createDrawerNavigator({
     //Title
     screen: FirstActivity_StackNavigator,
     navigationOptions: {
-      drawerLabel: 'Rapport',
+      drawerLabel: 'listProduit',
     },
   },
   Screen2: {
@@ -121,6 +143,19 @@ const DrawerNavigatorExample = createDrawerNavigator({
       drawerLabel: 'Liveur',
     },
   },
+});
+
+
+
+
+
+const styles = StyleSheet.create({
+  titleText: {
+    fontFamily: "Lucida Fax",
+    fontSize: 15,
+    color: "white",
+    fontWeight: "bold"
+  }
 });
 
 export default createAppContainer(DrawerNavigatorExample);
